@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        #TH {
+            display: inline-block;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-family: sans-serif;
+        }
+
+        .layout {
+            width: 600px;
+            height: 400px;
+            border: 2px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            flex: 1;
+        }
+
+        .box {
+            border: 1px solid #999;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .header {
+            height: 60px;
+            background-color:aquamarine;
+            color:#224086;
+            font-weight:900;
+            text-decoration:underline;
+        }
+
+        .sub {
+            height: 20px;
+            background-color:#41482c;
+            color:#b6ff00;
+            font-weight:900;
+            text-decoration:underline;
+        }
+
+        .footer {
+            height: 60px;
+            background-color:#224086;
+            color:#4cff00;
+            font-weight:900;
+            text-decoration:underline;
+        }
+
+        .small {
+            flex: 0.4;
+            background-color:#333;
+            color:antiquewhite;
+            font-weight:900;
+            text-decoration:underline;
+        }
+
+        .large {
+            flex: 1;
+            background-color:aliceblue;
+            color:#4d5a08;
+            font-weight:900;
+            text-decoration:underline;
+        }
+    </style>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-family: sans-serif;
+        }
+
+        .layout1 {
+            width: 220px;
+            height: 220px;
+            border: 2px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            flex: 1;
+        }
+
+        header, nav, section, aside, footer {
+            border: 1px solid #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        header {
+            height: 40px;
+            background-color:#9c8512;
+            color:azure;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        nav {
+            height: 25px;
+            background-color:#7d0a3a;
+            color:#b200ff;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        footer {
+            height: 30px;
+            background-color:#61096b;
+            color:azure;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        .small {
+            flex: 0.4;
+            background-color:#61096b;
+            color:aquamarine;
+            font-weight:900;
+            text-decoration:underline;
+        }
+
+        .large {
+            flex: 1;
+            background-color:#2f5560;
+            color:#ffd800;
+            font-weight:900;
+            text-decoration:underline;
+        }
+    </style>
+    <style>
+        #M1
+        {
+            background-color:#4800ff;
+            color:#4d5a08;
+            font-weight:900;
+            text-shadow:initial;
+            text-decoration:underline;
+        }
+        #M2
+        {
+            background-color:aqua;
+            color:#05500f;
+            font-weight:900;
+            text-shadow:inherit;
+            text-decoration:underline;
+        }
+        #M3 
+        {
+            background-color:aquamarine;
+            color: #61096b;
+            font-weight: 900;
+            text-shadow:revert;
+            text-decoration:underline;
+        }
+        #M4 {
+            background-color:#ff6a00;
+            color: #224086;
+            font-weight: 900;
+            text-shadow:revert-layer;
+            text-decoration:underline;
+        }
+        #M5 {
+            background-color:#4cff00;
+            color: #3d4ab8;
+            font-weight: 900;
+            text-shadow:unset;
+            text-decoration:underline;
+        }
+        #M6 {
+            background-color:#0026ff;
+            color: #9c8512;
+            font-weight: 900;
+            text-shadow: inherit;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="TH">
+    <h1>BT 2</h1>
+    <h2>Mẫu 1</h2>
+    <table border="1" width="600" height="400"id="M1">
+        <tr>
+            <td colspan="2" height="60" align="center">header</td>
+        </tr>
+        <tr>
+            <td width="150" align="center">menu</td>
+            <td align="center">Content</td>
+        </tr>
+    </table>
+
+    <h2>Mẫu 2</h2>
+    <table border="1" width="600" height="400"id="M2">
+        <tr>
+            <td colspan="2" height="60" align="center">header</td>
+        </tr>
+        <tr>
+            <td align="center">content</td>
+            <td width="150" align="center">menu</td>
+        </tr>
+    </table>
+
+    <h2>Mẫu 3</h2>
+    <table border="1" width="600" height="400"id="M3">
+        <tr>
+            <td colspan="2" height="60" align="center">header</td>
+        </tr>
+        <tr>
+            <td align="center">content</td>
+            <td width="150" align="center">menu</td>
+        </tr>
+        <tr>
+            <td colspan="2" height="60" align="center">footer</td>
+        </tr>
+    </table>
+
+    <h2>Mẫu 4</h2>
+    <table border="1" width="600" height="400"id="M4">
+        <tr>
+            <td colspan="2" height="60" align="center">header</td>
+        </tr>
+        <tr>
+            <td colspan="2" height="20" align="center">banner</td>
+        </tr>
+        <tr>
+            <td width="150" align="center">menu</td>
+            <td align="center">content</td>
+        </tr>
+    </table>
+
+    <h2>Mẫu 5</h2>
+    <table border="1" width="600" height="400"id="M5">
+        <tr>
+            <td colspan="2" width="400" height="60" align="center">header</td>
+            <td width="200" idth align="center">header</td>
+        </tr>
+        <tr>
+            <td colspan="3 " height="20" align="center">banner</td>
+        </tr>
+
+        <tr>
+            <td valign="top" align="center" width="150">menu</td>
+            <td colspan="2 " align="center">content</td>
+        </tr>
+    </table>
+
+    <h2>Mẫu 6</h2>
+    <table border="1" width="600" height="400"id="M6">
+        <tr>
+            <td colspan="3" width="180" height="60" align="center">header</td>
+            <td colspan="7" width="420" align="center">header</td>
+
+
+        </tr>
+        <tr>
+            <td colspan="2" width="120" align="center">menu</td>
+            <td colspan="6" width="360" align="center">content</td>
+            <td colspan="2" width="120" align="center">?</td>
+        </tr>
+        <tr>
+            <td colspan="10" height="60" align="center">footer</td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="TH">
+        <h1>BT3</h1>
+
+        <h2>Mẫu 1</h2>
+        <div class="layout">
+            <div class="box header" style="height :60px">Header</div>
+            <div class="row">
+                <div class="box small">Trái</div>
+                <div class="box">Phải</div>
+            </div>
+        </div>
+
+        <h2>Mẫu 2</h2>
+        <div class="layout">
+            <div class="box header">Header</div>
+            <div class="row">
+                <div class="box">Trái</div>
+                <div class="box small">Phải</div>
+            </div>
+        </div>
+
+        <h2>Mẫu 3</h2>
+        <div class="layout">
+            <div class="box header">Header</div>
+            <div class="row">
+                <div class="box">Trái</div>
+                <div class="box">Giữa</div>
+                <div class="box">Phải</div>
+            </div>
+            <div class="box footer">Footer</div>
+        </div>
+
+        <h2>Mẫu 4</h2>
+        <div class="layout">
+            <div class="box header">Header</div>
+            <div class="box sub">Subheader</div>
+            <div class="row">
+                <div class="box small">Trái</div>
+                <div class="box">Phải</div>
+            </div>
+        </div>
+
+        <h2>Mẫu 5</h2>
+        <div class="layout">
+            <div class="row">
+                <div class="box large">Header trái</div>
+                <div class="box small">Header phải</div>
+            </div>
+            <div class="box sub">Subheader</div>
+            <div class="row">
+                <div class="box small">Trái</div>
+                <div class="box large">Phải</div>
+            </div>
+        </div>
+
+        <h2>Mẫu 6</h2>
+        <div class="layout">
+            <div class="row">
+                <div class="box large">Header trái</div>
+                <div class="box small">Header phải</div>
+            </div>
+            <div class="row">
+                <div class="box small">Trái</div>
+                <div class="box large">Giữa</div>
+                <div class="box small">Phải</div>
+            </div>
+            <div class="box footer">Footer</div>
+        </div>
+    </div>
+    <div id="TH">
+        <h1>BT4</h1>
+
+        <h2>Mẫu 1</h2>
+        <div class="layout1">
+            <header>Header</header>
+            <div class="row">
+                <aside class="small">Aside</aside>
+                <section>Nội dung</section>
+            </div>
+        </div>
+
+        <h2>Mẫu 2</h2>
+        <div class="layout1">
+            <header>Header</header>
+            <div class="row">
+                <section>Nội dung</section>
+                <aside class="small">Aside</aside>
+            </div>
+        </div>
+
+        <h2>Mẫu 3</h2>
+        <div class="layout1">
+            <header>Header</header>
+            <div class="row">
+                <aside class="small">Aside</aside>
+                <section>Nội dung</section>
+                <aside class="small">Aside</aside>
+            </div>
+            <footer>Footer</footer>
+        </div>
+
+        <h2>Mẫu 4</h2>
+        <div class="layout1">
+            <header>Header</header>
+            <nav>Menu</nav>
+            <div class="row">
+                <aside class="small">Aside</aside>
+                <section>Nội dung</section>
+            </div>
+        </div>
+
+        <h2>Mẫu 5</h2>
+        <div class="layout1">
+            <div class="row">
+                <header class="large">Header</header>
+                <nav class="small">Nav</nav>
+            </div>
+            <nav>Menu</nav>
+            <div class="row">
+                <aside class="small">Aside</aside>
+                <section>Nội dung</section>
+            </div>
+        </div>
+
+        <h2>Mẫu 6</h2>
+        <div class="layout1">
+            <div class="row">
+                <header class="large">Header</header>
+                <nav class="small">Nav</nav>
+            </div>
+            <div class="row">
+                <aside class="small">Aside</aside>
+                <section class="large">Nội dung</section>
+                <aside class="small">Aside</aside>
+            </div>
+            <footer>Footer</footer>
+        </div>
+
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
