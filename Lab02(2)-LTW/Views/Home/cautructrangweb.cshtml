@@ -1,0 +1,473 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="description" content="Danh sach Sinh Vien gioi" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        .mytable {
+            border-collapse: collapse;
+        }
+
+        th.mytable {
+            border: 1px solid #008080;
+            border-top: 3px solid aqua;
+            border-bottom: 2px solid aqua;
+            background: #000033;
+            font: bold;
+            color: white;
+            text-align: left;
+            font-style: italic;
+            font-weight: 900;
+        }
+
+        td.mytable_column1 {
+            background-color: #000080;
+            color: white;
+            font-style: italic;
+        }
+
+        tr.mytable {
+            border-bottom: 3px solid aqua;
+            border-top: 2px solid aqua;
+        }
+
+        td.mytable_column234 {
+            background-color: #008080;
+            color: white;
+            font-style: italic;
+        }
+    </style>
+    <style>
+
+        .forum-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+
+            .forum-table th {
+                background-color: #f0f0f0;
+                color: #555;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: left;
+                padding: 10px 15px;
+                border-bottom: 2px solid #ccc;
+            }
+
+            .forum-table td {
+                padding: 10px 15px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+                font-size: 13px;
+            }
+
+
+            .forum-table tr:last-child td {
+                border-bottom: none;
+            }
+
+
+        .details {
+            color: #666;
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+
+        .forum-table a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+
+        .center-data {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <style>
+
+        :root {
+            --dark-red: #8B0000;
+            --bright-red: #CC0000;
+            --header-color: #A00000;
+            --text-color: white;
+        }
+
+
+        .recipe-table {
+            border-collapse: collapse;
+            width: 600px;
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--dark-red);
+        }
+
+        .recipe-instructions {
+            width: 570px;
+            background-color: var(--dark-red);
+            color: white;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin-top: 0;
+        }
+
+        .recipe-table th {
+            background-color: var(--header-color);
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px 10px;
+            border: 1px solid var(--dark-red);
+        }
+
+
+            .recipe-table th:first-child {
+                text-align: left;
+                border-right: none;
+            }
+
+
+        .recipe-table td {
+            padding: 10px 10px;
+            font-size: 14px;
+            border: 1px solid var(--dark-red);
+        }
+
+
+        .recipe-table tr:nth-child(even) {
+            background-color: var(--bright-red);
+        }
+
+
+        .recipe-table td:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+
+
+        .recipe-table td:not(:first-child) {
+            text-align: center;
+        }
+
+
+        .recipe-table tr.last-note td {
+            font-style: italic;
+            background-color: var(--dark-red);
+            text-align: left !important;
+        }
+    </style>
+    <style>
+        :root {
+            --light-blue: #E0F2F7; /* Xanh nhạt cho hàng xen kẽ */
+            --accent-blue: #C3E6F0; /* Xanh nhạt hơn cho tiêu đề hàng (MODEL, G5 PROCESSOR,...) */
+            --border-color: #AAAAAA; /* Màu xám nhạt cho viền */
+            --header-bg: #EAF7FB; /* Màu nền tiêu đề cột */
+            --dark-text: #333333;
+            --light-text: #666666;
+        }
+
+        .tech-spec-table {
+            border-collapse: collapse;
+            width: 800px;
+            font-family: Arial, sans-serif;
+            color: var(--dark-text);
+            font-size: 13px;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-caption {
+            text-align: right;
+            font-size: 11px;
+            color: var(--light-text);
+            margin-bottom: 5px;
+            font-style: italic;
+            padding-right: 5px;
+        }
+
+        .tech-spec-table th {
+            background-color: var(--header-bg);
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tech-spec-table td {
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+            .tech-spec-table td:first-child {
+                font-weight: bold;
+                color: var(--dark-text);
+                background-color: var(--accent-blue);
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+
+
+        .tech-spec-table tr:nth-child(odd) td:not(:first-child) {
+            background-color: white;
+        }
+
+        .tech-spec-table tr:nth-child(even) td:not(:first-child) {
+            background-color: var(--light-blue);
+        }
+
+        .tech-spec-table tr:first-child td:first-child {
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+        <h1 style="font-weight:900;color:aquamarine;font-size:10000;text-align:center;text-decoration:blink;text-shadow:5px 6px 7px blue;">Danh sách sinh viên</h1>
+    </div>
+    <div id="content">
+        <h2 style="font-weight:900;text-decoration:overline;font-size:1000;color:#ff6a00;text-shadow:1px 2px 3px #000033">Bài 1</h2>
+        <table class="mytable">
+            <tr>
+                <th class="mytable" width="150">header 1</td>
+                <th class="mytable" width="150">header 2</td>
+                <th class="mytable" width="150">header 3</td>
+                <th class="mytable" width="150">header 4</td>
+            </tr>
+            <tr class="mytable">
+                <td class="mytable_column1">column 1</td>
+                <td class="mytable_column234">column 2</td>
+                <td class="mytable_column234">column 3</td>
+                <td class="mytable_column234">column 4</td>
+            </tr>
+            <tr class="mytable">
+                <td class="mytable_column1">column 1</td>
+                <td class="mytable_column234">column 2</td>
+                <td class="mytable_column234">column 3</td>
+                <td class="mytable_column234">column 4</td>
+            </tr>
+            <tr class="mytable">
+                <td class="mytable_column1">column 1</td>
+                <td class="mytable_column234">column 2</td>
+                <td class="mytable_column234">column 3</td>
+                <td class="mytable_column234">column 4</td>
+            </tr>
+            <tr class="mytable">
+                <td class="mytable_column1">column 1</td>
+                <td class="mytable_column234">column 2</td>
+                <td class="mytable_column234">column 3</td>
+                <td class="mytable_column234">column 4</td>
+            </tr>
+        </table>
+        <h2 style="font-weight: 900; color: #ff6a00; text-decoration: overline; font-size: 1000; text-shadow: 1px 2px 3px #000033 ">Bài 2</h2>
+        <table class="forum-table">
+            <thead>
+                <tr>
+                    <th style="width: 50%;">Topic</th>
+                    <th class="center-data" style="width: 10%;">Posts</th>
+                    <th class="center-data" style="width: 10%;">Views</th>
+                    <th style="width: 30%;">Last Post</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#">🔒 Posting Guidelines</a>
+                        <div class="details">
+                            Posted in <a href="#">Please Read First!</a> by Joe Gillespie
+                        </div>
+                    </td>
+                    <td class="center-data">1</td>
+                    <td class="center-data">288</td>
+                    <td>Dec 21, 2003<br>by <a href="#">Joe Gillespie</a></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="#">🔒 Forum Rules</a>
+                        <div class="details">
+                            Posted in <a href="#">Please Read First!</a> by Joe Gillespie
+                        </div>
+                    </td>
+                    <td class="center-data">1</td>
+                    <td class="center-data">2023</td>
+                    <td>Dec 21, 2003<br>by <a href="#">Joe Gillespie</a></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="#">💬 A suitable Word Template</a>
+                        <div class="details">
+                            Posted in <a href="#">Web Design Software</a> by Willson Lagg
+                        </div>
+                    </td>
+                    <td class="center-data">2</td>
+                    <td class="center-data">199</td>
+                    <td>Mar 28, 2008<br>by <a href="#">Shahzad Asif</a></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="#">💬 few HTML and CSS issues</a>
+                        <div class="details">
+                            Posted in <a href="#">Layout</a> by Jade M
+                        </div>
+                    </td>
+                    <td class="center-data">3</td>
+                    <td class="center-data">1</td>
+                    <td>Mar 28, 2008<br>by <a href="#">Shahzad Asif</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2 style="font-weight:900;text-decoration:overline;font-size:1000;color:#ff6a00;text-shadow:1px 2px 3px #000033">Bài 3</h2>
+    <table class="recipe-table">
+        <thead>
+            <tr>
+                <th style="width: 40%;">Ingredients</th>
+                <th style="width: 30%;">serves 12</th>
+                <th style="width: 30%;">serves 24</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>milk</td>
+                <td>1 quart</td>
+                <td>2 quart</td>
+            </tr>
+
+            <tr>
+                <td>cinnamon sticks</td>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+
+            <tr>
+                <td>vanilla bean, split</td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+
+            <tr>
+                <td>cloves</td>
+                <td>5</td>
+                <td>10</td>
+            </tr>
+
+            <tr>
+                <td>mace</td>
+                <td>10 blades</td>
+                <td>20 blades</td>
+            </tr>
+
+            <tr>
+                <td>egg yolks</td>
+                <td>12</td>
+                <td>24</td>
+            </tr>
+
+            <tr>
+                <td>cups sugar</td>
+                <td>1 1/2 cups</td>
+                <td>3 cups</td>
+            </tr>
+
+            <tr>
+                <td>dark rum</td>
+                <td>1 1/2 cups</td>
+                <td>3 cups</td>
+            </tr>
+
+            <tr>
+                <td>brandy</td>
+                <td>1 1/2 cups</td>
+                <td>3 cups</td>
+            </tr>
+
+            <tr>
+                <td>vanilla</td>
+                <td>1 tbsp</td>
+                <td>2 tbsp</td>
+            </tr>
+
+            <tr>
+                <td>half-and-half or light cream</td>
+                <td>1 quart</td>
+                <td>2 quart</td>
+            </tr>
+
+            <tr class="last-note">
+                <td colspan="3">Freshly grated nutmeg to taste</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="recipe-instructions">
+        <ol>
+            <li>Combine milk and spices including vanilla bean in a heavy saucepan and let them infuse over lowest possible heat for 5 minutes. Meanwhile, combine yolks and sugar in a large bowl and whisk until mixed.</li>
+            <li>Bring milk to a boil and gradually whisk it into the yolk mixture. Return the mixture to the saucepan. Cook over medium heat, stirring steadily with a wooden spoon, for 2 to 3 minutes, or until foam subsides and mixture thickens to consistency of heavy cream. (Mixture should thickly coat the back of a wooden spoon.) Do not boil, or mixture will curdle.</li>
+            <li>Strain mixture into a large bowl and let cool to room temperature. Stir in rum, brandy, half-and-half, vanilla and nutmeg.</li>
+            <li>Refrigerate eggnog for at least 2 hours, preferably overnight. Just before serving, dust top of eggnog with additional nutmeg.</li>
+        </ol>
+    </div>
+    <h2 style="font-weight:900;text-decoration:overline;font-size:1000;color:#ff6a00;text-shadow:1px 2px 3px #000033">Bài 4</h2>
+
+    <div>
+        @RenderBody()
+    </div>
+    <div id="footer">
+
+    </div>
+</body>
+<div class="table-caption">
+    Table 1: Power Mac G5 tech specs
+</div>
+
+<table class="tech-spec-table">
+    <thead>
+        <tr>
+            <th style="background: none; border: none; text-align: left;">CONFIGURATIONS</th>
+
+            <th>DUAL 1.8GHZ</th>
+            <th>DUAL 2GHZ</th>
+            <th>DUAL 2.5GHZ</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>MODEL</td>
+            <td>M9454LL/A</td>
+            <td>M9455LL/A</td>
+            <td>M9457LL/A</td>
+        </tr>
+
+        <tr>
+            <td>G5 PROCESSOR</td>
+            <td>Dual 1.8GHz PowerPC G5</td>
+            <td>Dual 2GHz PowerPC G5</td>
+            <td>Dual 2.5GHz PowerPC G5</td>
+        </tr>
+
+        <tr>
+            <td>FRONTSIDE BUS</td>
+            <td>900MHz per processor</td>
+            <td>1GHz per processor</td>
+            <td>1.25GHz per processor</td>
+        </tr>
+
+        <tr>
+            <td>LEVEL 2 CACHE</td>
+            <td>512K per processor</td>
+            <td>512K per processor</td>
+            <td>512K per processor</td>
+        </tr>
+    </tbody>
+</table>
